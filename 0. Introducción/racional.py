@@ -16,6 +16,14 @@ class Racional:
         self.__numerador = numerador // comun * signo
         self.__denominador = denominador // comun
 
+    @property
+    def numerador(self):
+        return self.__numerador
+
+    @property
+    def denominador(self):
+        return self.__denominador
+
     def __str__(self):
         return f'{self.__numerador}/{self.__denominador}'
 
@@ -27,11 +35,28 @@ class Racional:
         return (self.__numerador * other.__denominador
             < self.__denominador * other.__numerador)
 
+    def __neg__(self):
+        return Racional(-self.__numerador, self.__denominador)
+
     def __add__(self, other):
         return Racional(
             self.__numerador * other.__denominador
             + self.__denominador * other.__numerador,
             self.__denominador * other.__denominador)
+
+    def __sub__(self, other):
+        return self + -other
+
+    def __invert__(self):
+        return Racional(self.__denominador,
+            self.__numerador)
+
+    def __mul__(self,other):
+        return Racional(self.__numerador * other.__numerador,
+                self.__denominador * other.__denominador)
+
+    def __truediv__(self, other):
+        return self * ~other
 
     def __int__(self):
         return self.__numerador // self.__denominador
@@ -45,6 +70,7 @@ class Racional:
     def __repr__(self):
         return f'Racional({self.__numerador},{self.__denominador})'
 
+# Ejemplos de uso
 
 a = Racional()
 print(f'a:          {a}')
@@ -73,3 +99,10 @@ print(f'hash(b):    {hash(b)}')
 print(f'hash(c):    {hash(c)}')
 s = {a, b, c}
 print(f's:          {s}')
+print(f'b-c:        {b-c}')
+print(f'b*c:        {b*c}')
+print(f'b/c:        {b/c}')
+print(f'-b:         {-b}')
+print(f'~b:         {~b}')
+print(f'f.numerador:   {f.numerador}')
+print(f'f.denominador: {f.denominador}')
