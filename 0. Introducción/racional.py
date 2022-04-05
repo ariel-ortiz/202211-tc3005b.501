@@ -31,6 +31,18 @@ class Racional:
             + self.__denominador * other.__numerador,
             self.__denominador * other.__denominador)
 
+    def __int__(self):
+        return self.__numerador // self.__denominador
+
+    def __float__(self):
+        return self.__numerador / self.__denominador
+
+    def __hash__(self):
+        return hash(float(self))
+
+    def __repr__(self):
+        return f'Racional({self.__numerador},{self.__denominador})'
+
 
 a = Racional()
 print(f'a:          {a}')
@@ -49,3 +61,13 @@ d = Racional(1, 3)
 print(f'd:          {d}')
 e = b + d
 print(f'e == b + d: {e}')
+print(f'int(a):     {int(a)}')
+f = Racional(15, 4)
+print(f'f:          {f}')
+print(f'int(f):     {int(f)}')
+print(f'float(a):   {float(a)}')
+print(f'float(f):   {float(f)}')
+print(f'hash(b):    {hash(b)}')
+print(f'hash(c):    {hash(c)}')
+s = {a, b, c}
+print(f's:          {s}')
