@@ -1,3 +1,5 @@
+# Ejemplo de clase no trivial en Python
+
 from math import gcd
 from functools import total_ordering
 
@@ -31,6 +33,7 @@ class Racional:
             + self.__denominador * other.__numerador,
             self.__denominador * other.__denominador)
 
+# Ejemplos de uso
 
 a = Racional()
 print(f'a:          {a}')
