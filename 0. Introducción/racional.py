@@ -1,3 +1,5 @@
+# Ejemplo de clase no trivial en Python
+
 from math import gcd
 from functools import total_ordering
 
