@@ -71,3 +71,59 @@ f'''{self._description}
 - Ingredients: {(', '.join(i.name for i in self._ingredients)
                  if self._ingredients else 'None').title()}
 ''')
+
+class PizzaBuilder:
+
+    def __init__(self) -> None:
+        self.reset()
+
+    def reset(self) -> None:
+        self._description = 'Plain Cheese Pizza'
+        self._dough = Dough.ORIGINAL
+        self._size = Size.MEDIUM
+        self._sauce = Quantity.REGULAR
+        self._cheese = Quantity.REGULAR
+        self._ingredients: List[Ingredient] = []
+
+    def set_description(self, description: str) -> 'PizzaBuilder':
+        self._description = description
+        return self
+
+    def set_dough(self, dough: Dough) -> 'PizzaBuilder':
+        self._dough = dough
+        return self
+
+    def set_size(self, size: Size) -> 'PizzaBuilder':
+        self._size = size
+        return self
+
+    def set_sauce(self, sauce: Quantity) -> 'PizzaBuilder':
+        self._sauce = sauce
+        return self
+
+    def set_cheese(self, cheese: Quantity) -> 'PizzaBuilder':
+        self._cheese = cheese
+        return self
+
+    def add_ingredient(self, ingredient: Ingredient) -> 'PizzaBuilder':
+        self._ingredients.append(ingredient)
+        return self
+
+    def get_result(self) -> Pizza:
+        return Pizza(
+            self._description,
+            self._dough,
+            self._size,
+            self._sauce,
+            self._cheese,
+            self._ingredients
+        )
+
+builder = PizzaBuilder()
+pizza = (builder.set_description('Hawaiian Pizza')
+    .set_size(Size.CHOMPER)
+    .add_ingredient(Ingredient.PINEAPPLE)
+    .add_ingredient(Ingredient.HAM)
+    .get_result())
+
+print(pizza)
