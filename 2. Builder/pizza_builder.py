@@ -119,11 +119,23 @@ class PizzaBuilder:
             self._ingredients
         )
 
+
+class HawaiianPizzaDirector:
+
+    def __init__(self, builder: PizzaBuilder) -> None:
+        self._builder = builder
+
+    def make(self) -> Pizza:
+        self._builder.reset()
+        return (self._builder.set_description('Hawaiian Pizza')
+            .set_size(Size.LARGE)
+            .add_ingredient(Ingredient.PINEAPPLE)
+            .add_ingredient(Ingredient.HAM)
+            .get_result())
+
+
 builder = PizzaBuilder()
-pizza = (builder.set_description('Hawaiian Pizza')
-    .set_size(Size.CHOMPER)
-    .add_ingredient(Ingredient.PINEAPPLE)
-    .add_ingredient(Ingredient.HAM)
-    .get_result())
+director = HawaiianPizzaDirector(builder)
+pizza = director.make()
 
 print(pizza)
