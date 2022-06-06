@@ -1,0 +1,17 @@
+= Class Exercise: Refactorings
+
+**Refactoring (noun):** a change made to the internal structure of software to make it easier to understand and cheaper to modify without changing its observable behavior.
+
+**Refactor (verb):** to restructure software by applying a series of refactorings without changing its observable behavior.
+
+Review carefully the contents of the `student.py` and `student_test.py` files. One by one, perform the following refactorings as described in https://refactoring.guru/[Refactoring Guru]:
+
+["lowerroman"]
+
+. https://refactoring.guru/replace-magic-number-with-symbolic-constant[Replace Magic Number with Symbolic Constant]
+. https://refactoring.guru/rename-method[Rename Method]
+. https://refactoring.guru/split-temporary-variable[Split Temporary Variable]
+. https://refactoring.guru/extract-method[Extract Method]
+. https://refactoring.guru/hide-method[Hide Method]
+. https://refactoring.guru/extract-variable[Extract Variable]
+. https://refactoring.guru/replace-error-code-with-exception[Replace Error Code with Exception]
