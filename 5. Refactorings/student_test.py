@@ -15,7 +15,6 @@ class StudentTest(TestCase):
     self._student1.add_grade(90).add_grade(84).add_grade(93)
 
   def tearDown(self):
-    global st
     sys.stdout = self._old_stdout
 
   def test_meh(self):
